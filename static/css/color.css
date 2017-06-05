@@ -21,7 +21,8 @@ h1 {
     margin: 0;
 }
 
-.inmateList{
+.inmateList ul li {
+    width: 150px;
     display: inline-block;
 }
 
