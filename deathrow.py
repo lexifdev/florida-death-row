@@ -4,15 +4,7 @@ from roster import ROSTER
 app = Flask(__name__)
 #app.config['SECRET_KEY'] = '14uff!eumps&w00ze!s'
 application = app
-#get all of the IDs and names and append them to the list names
-def get_names(source):
-    names = []
-    for row in source:
-        id = row["id"]
-        name = row["name"]
-        photo = row["photo"]
-        names.append([id, name])
-    return names, photo
+
 
 # get the information for each ID
 def get_inmatedata(source, id):
@@ -33,8 +25,7 @@ def get_inmatedata(source, id):
 @app.route('/')
 @app.route('/inmates.html')
 def inmates():
-    names, photo = get_names(ROSTER)
-    return render_template('inmates.html', pairs=names, photo=photo)
+    return render_template('inmates.html', roster=ROSTER)
 
 
 

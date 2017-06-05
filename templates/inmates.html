@@ -15,16 +15,18 @@
 
 <p>This is a list of Florida's Death Row inmates. Caitlin Ostroff makes poor life choices.</p>
 
-
-{% for pair in pairs %}
-
-    <div class="inmateList">
-        <div><a href="{{ url_for('inmate', id=pair[0]) }}">  <img src="{{ url_for('static', filename='mugshots/' + photo) }}" width="150" height="200"/> </div>
-<p >{{ pair[1] }}</p>
-   
-</div>
-
+<div class="inmateList">
+<ul>
+{% for source in roster %}
+    <li>
+        <a href="{{ url_for('inmate', id=source.id) }}">
+            <img src="{{ url_for('static', filename='mugshots/' + source.photo) }}" width="150" height="200"/>
+        </a>
+        <p >{{ source.name }}</p>
+    </li>
 {% endfor %}
+</ul>
+</div>
 
 
 
